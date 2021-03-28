@@ -1,0 +1,15 @@
+doctype html
+html(lang="zh-Hant-TW")
+  head
+    include partials/Meta.pug
+    include partials/CssLink.pug
+    block pageCSS
+  body
+    .body-wrapper
+      include components/Header.pug
+      block body
+      include components/Footer.pug
+    include partials/JsSrc.pug
+
+
+    
