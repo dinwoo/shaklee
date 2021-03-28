@@ -1,0 +1,1 @@
+{"version":3,"sources":["index.sass"],"names":[],"mappings":"AACA,mBACE,cAAA,KADF,wBAGI,QAAA,MACA,MAAA,MACA,OAAA,KAAA","file":"index.css","sourcesContent":["\narticle.index-page {\n  margin-bottom: 80px;\n  .btn {\n    display: block;\n    width: 580px;\n    margin: 40px auto; } }\n"]}
