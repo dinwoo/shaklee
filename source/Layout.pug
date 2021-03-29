@@ -6,10 +6,11 @@ html(lang="zh-Hant-TW")
     block pageCSS
   body
     .body-wrapper
-      include components/Header.pug
+      block head
       block body
-      include components/Footer.pug
+      block footer
     include partials/JsSrc.pug
+    block pageJs
 
 
     

@@ -1,0 +1,11 @@
+extend ../Layout.pug
+
+block pageCSS
+  link(href="./css/flowchart.css", rel="stylesheet")
+  link(href="./css/building.css", rel="stylesheet")
+
+block body
+  article.guided-page
+    include ../components/building.pug 
+    
+

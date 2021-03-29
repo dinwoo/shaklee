@@ -3,15 +3,21 @@ extend ../Layout.pug
 block pageCSS
   link(href="./css/index.css", rel="stylesheet")
 
+block head
+  include ../components/Header.pug
+
+block footer
+  include ../components/Footer.pug
+
 block body
   article.index-page
     a.btn(href="./checkin.html") 
       figure
         img(src="./images/btn01.png")
-    a.btn(href="") 
+    a.btn(href="./guided.html") 
       figure
         img(src="./images/btn02.png")
-    a.btn(href="") 
+    a.btn(href="./flowchart.html") 
       figure
         img(src="./images/btn03.png")
 

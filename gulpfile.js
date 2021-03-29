@@ -58,7 +58,7 @@ gulp.task('babel', () =>
         .pipe($.babel({
             presets: ['@babel/env']
         }))
-        .pipe($.concat('all.js'))
+        // .pipe($.concat('all.js'))
         .pipe($.if(options.env==='production',$.uglify({
           compress: {
             drop_console: true

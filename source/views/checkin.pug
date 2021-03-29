@@ -3,6 +3,16 @@ extend ../Layout.pug
 block pageCSS
 	link(href="./css/checkin.css", rel="stylesheet")
 
+block pageJs
+	script(src="./js/checkin.js")
+	
+
+block head
+	include ../components/Header.pug
+
+block footer
+	include ../components/Footer.pug
+
 block body
 	article.checkin-page
 		.gift-box
@@ -15,6 +25,7 @@ block body
 				img(src="http://s05.calm9.com/qrcode/2021-03/97ZN65XMNP.png")
 		.timer
 			.time#time 00:00
+			.time#reload 重新載入
 			//- .time 重新載入
 			//- figure.reload
 				img(src="./images/reload.png")
