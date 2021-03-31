@@ -9,12 +9,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700&amp;display=swap" rel="stylesheet">
     <link href="./css/all.css" rel="stylesheet">
     <link href="./css/checkin.css" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
-    <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
-    <script src="./js/liff_inital_js_template_v3.js"></script>
   </head>
   <body>
-    <div class="body-wrapper">
+    <div class="body-wrapper" id="mainBody">
       <header>
         <figure class="dot-top"><img src="./images/dot_top.png"></figure>
       </header>
@@ -39,6 +36,14 @@
         <figure class="dot-bottom"><img src="./images/dot_bottom.png"></figure>
       </footer>
     </div>
+    <div class="qr-code" id="QRCode">
+      <figure><img src="./images/shaklee qrcode.png">
+        <figcaption>請用手機掃描QR code開啟</figcaption>
+      </figure>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
+    <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+    <script src="./js/liff_inital_js_template_v3.js"></script>
     <script src="./js/checkin.js"></script>
   </body>
 </html>
