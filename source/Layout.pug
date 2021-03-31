@@ -4,12 +4,16 @@ html(lang="zh-Hant-TW")
     include partials/Meta.pug
     include partials/CssLink.pug
     block pageCSS
+    include partials/JsSrc.pug
   body
-    .body-wrapper
+    .body-wrapper#mainBody
       block head
       block body
       block footer
-    include partials/JsSrc.pug
+    .qr-code#QRCode
+      figure
+        img(src="./images/shaklee qrcode.png")
+        figcaption 請用手機掃描QR code開啟
     block pageJs
 
 

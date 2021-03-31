@@ -3,14 +3,23 @@ var EncodeQuertstring;
 var DecodeQueryString;
 var ArrQuertString;
 $(document).ready(function () {
-  //LIFF初始化是這段
-  InitializeLineLiffSdk();
+  if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+    //mobile:只顯示網頁，讓人用掃的才能開啟
+    console.log('mobile');
+    //LIFF初始化是這段
+    InitializeLineLiffSdk();
+  
+    //這邊是解LIFF導轉之後特有的解QueryString
+    ArrLiffQueryString = GetInLiffAppQuertString();
+    EncodeQuertstring = ArrLiffQueryString["liff.state"];
+    DecodeQueryString = DecondeUtf8(EncodeQuertstring);
+    ArrQuertString = GetArrQueryString(DecodeQueryString);
 
-  //這邊是解LIFF導轉之後特有的解QueryString
-  ArrLiffQueryString = GetInLiffAppQuertString();
-  EncodeQuertstring = ArrLiffQueryString["liff.state"];
-  DecodeQueryString = DecondeUtf8(EncodeQuertstring);
-  ArrQuertString = GetArrQueryString(DecodeQueryString);
+  } else {
+    //pc:顯示qrcode
+    $('#QRCode').show();
+    $('#mainBody').hide();
+  }
 });
 
 function GetLiffId() {
@@ -72,7 +81,7 @@ function InitializeLineLiffSdk(liffId) {
         Login();
         return false;
       }
-
+      console.loh('login OK')
       // 2021-03-16
       liff
         .getFriendship()
@@ -128,7 +137,8 @@ function InitializeLineLiffSdk(liffId) {
 }
 
 function KeepInitializeLineLiffSdk() {
-  // start to use LIFF's api
+  console.loh('keep')
+      // start to use LIFF's api
   var os = liff.getOS();
 
   //true: Running in LINE browser
