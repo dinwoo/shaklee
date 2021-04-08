@@ -11,9 +11,17 @@ $(document).ready(function () {
   
     //這邊是解LIFF導轉之後特有的解QueryString
     ArrLiffQueryString = GetInLiffAppQuertString();
-    EncodeQuertstring = ArrLiffQueryString["liff.state"];
-    DecodeQueryString = DecondeUtf8(EncodeQuertstring);
-    ArrQuertString = GetArrQueryString(DecodeQueryString);
+    // EncodeQuertstring = ArrLiffQueryString["liff.state"];
+    // DecodeQueryString = DecondeUtf8(EncodeQuertstring);
+    // ArrQuertString = GetArrQueryString(DecodeQueryString);
+    console.log(ArrLiffQueryString['debug']);
+    if(ArrLiffQueryString['debug']=='1'){
+      // 直接開始
+      console.log('直接開始')
+    }else{
+      // 打API判斷活動是否開始
+      console.log('打API判斷活動是否開始')
+    }
 
   } else {
     //pc:顯示qrcode
@@ -41,8 +49,8 @@ function GetArrQueryString(queryString) {
   if (strUrl.indexOf("?") !== -1) {
     var getSearch = strUrl.split("?");
     getPara = getSearch[1].split("&");
-    for (i = 0; i < getPara.length; i++) {
-      ParaVal = getPara[i].split("=");
+    for (let j = 0; j < getPara.length; j++) {
+      ParaVal = getPara[j].split("=");
       aryPara.push(ParaVal[0]);
       aryPara[ParaVal[0]] = ParaVal[1];
     }
@@ -59,7 +67,7 @@ function GetInLiffAppQuertString() {
   if (strUrl.indexOf("?") !== -1) {
     var getSearch = strUrl.split("?");
     getPara = getSearch[1].split("&");
-    for (i = 0; i < getPara.length; i++) {
+    for (let i = 0; i < getPara.length; i++) {
       ParaVal = getPara[i].split("=");
       aryPara.push(ParaVal[0]);
       aryPara[ParaVal[0]] = ParaVal[1];
@@ -81,54 +89,9 @@ function InitializeLineLiffSdk(liffId) {
         Login();
         return false;
       }
-      console.loh('login OK')
-      // 2021-03-16
-      liff
-        .getFriendship()
-        .then((data) => {
-          if (data.friendFlag) {
-            console.log("getFriendship true");
-            console.log("getFriendship.data", data);
-            console.log("getFriendship.data.friendFlag", data.friendFlag);
-            //$.alert({
-            //    title: '是否已經加入官方LINE@帳號',
-            //    animation: 'zoom',
-            //    closeAnimation: 'scale',
-            //    content: "您已經加入官方LINE@帳號，是否繼續？",
-            //    buttons: {
-            //        OK: function () {
-            //            KeepInitializeLineLiffSdk();
-            //        },
-            //        NO: function () {
-            //            alert("881");
-            //        }
-            //    }
-            //});
-          } else {
-            console.log("getFriendship false");
-            console.log("getFriendship.data", data);
-            //$.alert({
-            //    title: '是否已經加入官方LINE@帳號',
-            //    animation: 'zoom',
-            //    closeAnimation: 'scale',
-            //    content: "您目前還沒有加入官方LINE@帳號，是否繼續？",
-            //    buttons: {
-            //        OK: function () {
-            //            KeepInitializeLineLiffSdk();
-            //        },
-            //        NO: function () {
-            //            alert("881");
-            //        }
-            //    }
-            //});
+      console.log('login OK')
+      KeepInitializeLineLiffSdk();
 
-            KeepInitializeLineLiffSdk();
-          }
-        })
-        .catch((err) => {
-          alert(err.code);
-          alert(err.message);
-        });
     })
     .catch((err) => {
       alert(err.code);
@@ -137,7 +100,7 @@ function InitializeLineLiffSdk(liffId) {
 }
 
 function KeepInitializeLineLiffSdk() {
-  console.loh('keep')
+  console.log('keep')
       // start to use LIFF's api
   var os = liff.getOS();
 

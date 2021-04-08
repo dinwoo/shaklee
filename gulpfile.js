@@ -61,7 +61,7 @@ gulp.task('babel', () =>
         // .pipe($.concat('all.js'))
         .pipe($.if(options.env==='production',$.uglify({
           compress: {
-            drop_console: true
+            drop_console: false
           }
         })))
         .pipe($.sourcemaps.write('.'))
