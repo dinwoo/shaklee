@@ -7,7 +7,7 @@ $(document).ready(function () {
     //mobile:只顯示網頁，讓人用掃的才能開啟
     console.log('mobile');
     //LIFF初始化是這段
-    InitializeLineLiffSdk();
+    // InitializeLineLiffSdk();
   
     //這邊是解LIFF導轉之後特有的解QueryString
     ArrLiffQueryString = GetInLiffAppQuertString();
@@ -18,6 +18,8 @@ $(document).ready(function () {
     if(ArrLiffQueryString['debug']=='1'){
       // 直接開始
       console.log('直接開始')
+      $('#mainBody').show();
+
     }else{
       // 打API判斷活動是否開始
       console.log('打API判斷活動是否開始')

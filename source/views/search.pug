@@ -1,11 +1,31 @@
 extend ../Layout.pug
 
 block pageCSS
-  link(href="./css/flowchart.css", rel="stylesheet")
-  link(href="./css/building.css", rel="stylesheet")
+  link(href="./css/search.css", rel="stylesheet")
+
+block head
+  include ../components/Header.pug
+
+block footer
+  include ../components/Footer.pug
 
 block body
-  article.guided-page
-    include ../components/Building.pug
-    
+  article.search-page
+    section.search-insert
+      figure.search-title
+        img(src="./images/search_title.png")
+      input(type="number")
+      figure.search-btn
+        img(src="./images/search_btn_01.png")
+    section.search-result
+      figure.win
+        img(src="./images/win.png")
+      figure.prize
+        img(src="./images/prize01.png")
+      figure.line
+        img(src="./images/search_line.png")
+      .number 0001
+      figure.search-btn
+        img(src="./images/search_btn_02.png")
 
+    
