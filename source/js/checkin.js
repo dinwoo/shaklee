@@ -1,10 +1,25 @@
 (function(){
   let timer;
   function getQRCode (){
-    setTimeout(() => {
-      $('#load').hide();
-      timerHandler(60)
-    }, 1000);
+    $.ajax({
+      url: apiDomain+'/api/shaklee/checkin',
+      type: 'POST',
+      data:{
+        'lineUserId':profileUserId
+      },
+      success: function (res) {
+        console.log(res);
+        if(res.success){
+          $('#load').hide();
+          timerHandler(res.sec)
+          if(res.isCheckin) $('#received').show();
+          $('#qrCode img').attr('src',res.qrcode);
+        }
+      },
+      error: function (xhr) {
+        console.log(xhr)
+      }
+    });
   }
 
   function timerHandler(time) {
@@ -24,8 +39,12 @@
   }
 
   $(document).ready(()=>{
+    $('#mainBody').show();
     $('#load').show();
+    console.log(profileUserId);
+
     getQRCode();
+
     $('#reload').on('click',function(){
       $('#load').show();
       $('#reload').hide();

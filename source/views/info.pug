@@ -2,10 +2,16 @@ extend ../Layout.pug
 
 block pageCSS
   link(href="./css/info.css", rel="stylesheet")
-  link(href="./css/building.css", rel="stylesheet")
+
+//- block head
+//-   include ../components/Header.pug
+
+//- block footer
+//-   include ../components/Footer.pug
 
 block body
-  article.guided-page
-    include ../components/Building.pug 
-    
-
+  article.info-page
+    figure.flowchart
+      img(src="./images/flowchart.jpg")
+    figure.map
+      img(src="./images/map.jpg")

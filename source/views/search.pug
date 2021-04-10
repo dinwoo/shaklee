@@ -3,6 +3,9 @@ extend ../Layout.pug
 block pageCSS
   link(href="./css/search.css", rel="stylesheet")
 
+block pageJs
+  script(src="./js/search.js")
+
 block head
   include ../components/Header.pug
 
@@ -14,18 +17,20 @@ block body
     section.search-insert
       figure.search-title
         img(src="./images/search_title.png")
-      input(type="number")
-      figure.search-btn
+      input(type="number" id="numberInput")
+      figure.search-btn#search
         img(src="./images/search_btn_01.png")
     section.search-result
       figure.win
         img(src="./images/win.png")
+      figure.lose
+        img(src="./images/lose.png")
       figure.prize
         img(src="./images/prize01.png")
       figure.line
         img(src="./images/search_line.png")
       .number 0001
-      figure.search-btn
+      figure.search-btn#back
         img(src="./images/search_btn_02.png")
 
     

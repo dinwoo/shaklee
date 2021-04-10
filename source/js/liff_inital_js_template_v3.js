@@ -2,6 +2,25 @@ var ArrLiffQueryString;
 var EncodeQuertstring;
 var DecodeQueryString;
 var ArrQuertString;
+
+function checkStart(){
+  $.ajax({
+    url: apiDomain+'/api/shaklee/checkenable',
+    type: 'GET',
+    success: function (res) {
+      console.log(res);
+      if(res.success){
+        $('#mainBody').show();
+      }else{
+        $('#mainBody').hide();
+        $('#wait').show();
+      }
+    },
+    error: function (xhr) {
+      console.log(xhr)
+    }
+  });
+}
 $(document).ready(function () {
   if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
     //mobile:只顯示網頁，讓人用掃的才能開啟
@@ -18,11 +37,12 @@ $(document).ready(function () {
     if(ArrLiffQueryString['debug']=='1'){
       // 直接開始
       console.log('直接開始')
-      $('#mainBody').show();
+      // $('#mainBody').show();
 
     }else{
       // 打API判斷活動是否開始
       console.log('打API判斷活動是否開始')
+      checkStart();
     }
 
   } else {
@@ -132,10 +152,6 @@ function KeepInitializeLineLiffSdk() {
     contextGroupId = context.groupId;
   }
 
-  var profileUserId = "";
-  var profileDisplayName = "";
-  var profilePictureUrl = "";
-  var profileStatusMessage = "";
   liff
     .getProfile()
     .then((profile) => {
