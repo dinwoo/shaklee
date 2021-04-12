@@ -26,7 +26,7 @@ $(document).ready(function () {
     //mobile:只顯示網頁，讓人用掃的才能開啟
     console.log('mobile');
     //LIFF初始化是這段
-    // InitializeLineLiffSdk();
+    InitializeLineLiffSdk();
   
     //這邊是解LIFF導轉之後特有的解QueryString
     ArrLiffQueryString = GetInLiffAppQuertString();
@@ -156,6 +156,7 @@ function KeepInitializeLineLiffSdk() {
     .getProfile()
     .then((profile) => {
       profileUserId = profile.userId;
+      window.localStorage.setItem('profileUserId',profileUserId)
       profileDisplayName = profile.displayName;
       profilePictureUrl = profile.pictureUrl;
       profileStatusMessage = profile.statusMessage;

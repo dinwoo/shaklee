@@ -5,7 +5,7 @@
       url: apiDomain+'/api/shaklee/checkin',
       type: 'POST',
       data:{
-        'lineUserId':profileUserId
+        'lineUserId':window.localStorage.getItem('profileUserId')
       },
       success: function (res) {
         console.log(res);
@@ -41,7 +41,7 @@
   $(document).ready(()=>{
     $('#mainBody').show();
     $('#load').show();
-    console.log(profileUserId);
+    console.log(window.localStorage.getItem('profileUserId'));
 
     getQRCode();
 
