@@ -28,9 +28,13 @@
   }
 
   $(document).ready(()=>{
-    $('#mainBody').show();
+    $('#load').show();
+    setTimeout(() => {
+      $('#load').hide();
+    }, 500);
     $('#search').on('click',searchPrize)
     $('#back').on('click',()=>{
+      $('#numberInput').val('');
       $('.search-insert').show();
       $('.search-result').hide();
     })

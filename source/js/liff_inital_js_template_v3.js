@@ -37,7 +37,7 @@ $(document).ready(function () {
     if(ArrLiffQueryString['debug']=='1'){
       // 直接開始
       console.log('直接開始')
-      // $('#mainBody').show();
+      $('#mainBody').show();
 
     }else{
       // 打API判斷活動是否開始
