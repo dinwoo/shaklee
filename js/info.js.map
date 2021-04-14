@@ -1,0 +1,1 @@
+{"version":3,"sources":["info.js"],"names":["$","document","ready","show","setTimeout"],"mappings":"aACEA,EAAEC,UAAUC,MAAM,WADnBF,EAAA,SAAUG,OACPF,WAAUC,WACRF,EAAA,SAASG,QACXC","file":"info.js","sourcesContent":["(function(){\r\n  $(document).ready(()=>{\r\n    $('#load').show();\r\n    setTimeout(() => {\r\n      $('#load').hide();\r\n    }, 1000);\r\n\r\n  })\r\n})();"]}
