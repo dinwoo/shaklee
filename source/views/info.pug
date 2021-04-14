@@ -3,6 +3,9 @@ extend ../Layout.pug
 block pageCSS
   link(href="./css/info.css", rel="stylesheet")
 
+block pageJs
+  script(src="./js/info.js")
+  
 //- block head
 //-   include ../components/Header.pug
 
@@ -11,6 +14,9 @@ block pageCSS
 
 block body
   article.info-page
+    .load#load
+      figure
+        img(src="./images/load.svg")
     figure.flowchart
       img(src="./images/flowchart.jpg")
     figure.map

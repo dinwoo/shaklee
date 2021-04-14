@@ -31,7 +31,7 @@
     $('#load').show();
     setTimeout(() => {
       $('#load').hide();
-    }, 500);
+    }, 1000);
     $('#search').on('click',searchPrize)
     $('#back').on('click',()=>{
       $('#numberInput').val('');

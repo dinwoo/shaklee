@@ -9,6 +9,7 @@ function checkStart(){
     type: 'GET',
     success: function (res) {
       console.log(res);
+      $('#load').hide();
       if(res.success){
         $('#mainBody').show();
       }else{
@@ -22,34 +23,42 @@ function checkStart(){
   });
 }
 $(document).ready(function () {
-  if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-    //mobile:只顯示網頁，讓人用掃的才能開啟
-    console.log('mobile');
-    //LIFF初始化是這段
-    InitializeLineLiffSdk();
+  $('#load').show();
+  $('.btn').on('click',function () {
+    $('#load').show();
+  })
+  setTimeout(() => {
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+      //mobile:只顯示網頁，讓人用掃的才能開啟
+      console.log('mobile');
+      //LIFF初始化是這段
+      // InitializeLineLiffSdk();
+    
+      //這邊是解LIFF導轉之後特有的解QueryString
+      ArrLiffQueryString = GetInLiffAppQuertString();
+      // EncodeQuertstring = ArrLiffQueryString["liff.state"];
+      // DecodeQueryString = DecondeUtf8(EncodeQuertstring);
+      // ArrQuertString = GetArrQueryString(DecodeQueryString);
+      console.log(ArrLiffQueryString['debug']);
+      if(ArrLiffQueryString['debug']=='1'){
+        // 直接開始
+        console.log('直接開始')
+        $('#load').hide();
+        $('#mainBody').show();
   
-    //這邊是解LIFF導轉之後特有的解QueryString
-    ArrLiffQueryString = GetInLiffAppQuertString();
-    // EncodeQuertstring = ArrLiffQueryString["liff.state"];
-    // DecodeQueryString = DecondeUtf8(EncodeQuertstring);
-    // ArrQuertString = GetArrQueryString(DecodeQueryString);
-    console.log(ArrLiffQueryString['debug']);
-    if(ArrLiffQueryString['debug']=='1'){
-      // 直接開始
-      console.log('直接開始')
-      $('#mainBody').show();
-
-    }else{
-      // 打API判斷活動是否開始
-      console.log('打API判斷活動是否開始')
-      checkStart();
+      }else{
+        // 打API判斷活動是否開始
+        console.log('打API判斷活動是否開始')
+        checkStart();
+      }
+  
+    } else {
+      //pc:顯示qrcode
+        $('#load').hide();
+        $('#QRCode').show();
+      $('#mainBody').hide();
     }
-
-  } else {
-    //pc:顯示qrcode
-    $('#QRCode').show();
-    $('#mainBody').hide();
-  }
+  }, 500);
 });
 
 function GetLiffId() {
